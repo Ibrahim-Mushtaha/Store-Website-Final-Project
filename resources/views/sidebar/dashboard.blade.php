@@ -63,7 +63,7 @@
                                 <a href="{{ route('userManagement') }}">User Control</a>
                             </li>
                             <li class="submenu-item">
-                                <a href="{{ route('activity/log') }}">User Activity Log</a>
+                                <a href="{{ route('activity/log') }}">User Activity</a>
                             </li>
                             <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">Activity Log</a>
@@ -71,7 +71,7 @@
                         </ul>
                     </li>
                 @endif
-                
+
                 <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

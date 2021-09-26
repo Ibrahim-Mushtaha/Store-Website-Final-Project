@@ -50,7 +50,7 @@
                         <span>Chnage Password</span>
                     </a>
                 </li>
-                
+
                 @if (Auth::user()->role_name=='Admin')
                     <li class="sidebar-title">Page &amp; Controller</li>
                     <li class="sidebar-item  has-sub active">
@@ -63,7 +63,7 @@
                                 <a href="{{ route('userManagement') }}">User Control</a>
                             </li>
                             <li class="submenu-item">
-                                <a href="{{ route('activity/log') }}">User Activity Log</a>
+                                <a href="{{ route('activity/log') }}">User Activity</a>
                             </li>
                             <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">Activity Log</a>
