@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">User Activity log</h6>
+                                        <h6 class="text-muted font-semibold">User Activity</h6>
                                         <h6 class="font-extrabold mb-0">{{ $user_activity_logs }}</h6>
                                     </div>
                                 </div>
@@ -282,7 +282,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-md-4">
                                                 <label>Status</label>
                                             </div>
