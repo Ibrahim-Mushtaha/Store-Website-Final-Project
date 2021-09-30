@@ -88,28 +88,28 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/featured/products') }}" class='sidebar-link'>
                         <i class="bi bi-list-stars"></i>
                         <span>Featured Products</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/categories') }}" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Categories</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/stores') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
                         <span>Stores</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/featured/stores') }}" class='sidebar-link'>
                         <i class="bi bi-bookmark-star-fill"></i>
                         <span>Featured Stores</span>
                     </a>

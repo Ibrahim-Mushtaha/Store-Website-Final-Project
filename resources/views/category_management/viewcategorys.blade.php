@@ -13,11 +13,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    @if($type == "allProduct")
-                    <h3>View Products</h3>
-                    @else
-                    <h3>View Featured Products</h3>
-                    @endif
+                    <h3>View All Categories</h3>
                     <p class="text-subtitle text-muted">staff information list</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -43,10 +39,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>ID</th>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
-                                <th>Salary</th>
+                                <th>Category Name</th>
+                                <th>Product Quantities</th>
                                 <th>Product Image</th>
                                 <th class="text-center">Modify</th>
                             </tr>
@@ -58,8 +52,6 @@
                                     <td class="name">{{ $item->rec_id }}</td>
                                     <td class="name">{{ $item->full_name }}</td>
                                     <td class="name">{{ $item->sex }}</td>
-                                    <td class="email">{{ $item->email_address }}</td>
-                                    <td class="phone_number">{{ $item->salary }}</td>
                                     <td><img src="{{ URL::to('assets/images/samples/test_product.jpg') }}" alt="" height=96 width=124></td>
                                     <td class="text-center">
                                         <a href="{{ url('form/view/detail/'.$item->id) }}">

@@ -13,10 +13,10 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    @if($type == "allProduct")
-                    <h3>View Products</h3>
+                    @if($type == "allStores")
+                    <h3>View Stores</h3>
                     @else
-                    <h3>View Featured Products</h3>
+                    <h3>View Featured Stores</h3>
                     @endif
                     <p class="text-subtitle text-muted">staff information list</p>
                 </div>
