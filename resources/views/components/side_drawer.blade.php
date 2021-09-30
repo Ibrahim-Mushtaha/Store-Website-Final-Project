@@ -81,7 +81,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/products') }}" class='sidebar-link'>
                         <i class="bi bi-inbox-fill"></i>
                         <span>Products</span>
                     </a>

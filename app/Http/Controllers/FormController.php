@@ -32,6 +32,12 @@ class FormController extends Controller
 
     }
 
+    public function viewProducts()
+    {
+        $data = DB::table('staff')->get();
+        return view('product_management.viewproducts',compact('data'));
+    }
+
     // view update
     public function viewUpdate(Request $request)
     {
@@ -68,7 +74,7 @@ class FormController extends Controller
         }
     }
 
-    // save 
+    // save
     public function saveRecord(Request $request)
     {
         $request->validate([
