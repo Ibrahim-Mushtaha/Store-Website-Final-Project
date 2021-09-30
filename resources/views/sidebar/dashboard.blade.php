@@ -6,7 +6,7 @@
                     <a href="{{ route('home') }}"><img src="{{ URL::to('assets/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
                 </div>
                 <div class="toggler">
-                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    <a href="#" class="يشsidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,9 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item active">
-                            <a href="{{ route('form/staff/new') }}">Staff Input</a>
+                            <a href="{{ route('form/staff/new') }}">Add Users</a>
+                            <a href="{{ route('form/staff/new') }}">Add Categories</a>
+                            <a href="{{ route('form/staff/new') }}">Add Product</a>
                         </li>
                     </ul>
                 </li>
@@ -91,7 +93,9 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{ route('form/view/detail') }}">View Detail</a>
+                            <a href="{{ route('form/view/detail') }}">View Users</a>
+                            <a href="{{ route('form/view/detail') }}">View Categories</a>
+                            <a href="{{ route('form/view/detail') }}">View Products</a>
                         </li>
                     </ul>
                 </li>

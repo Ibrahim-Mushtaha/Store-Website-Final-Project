@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.viewrecord')
+@extends('sidebar.dashboard')
 @endsection
 @section('content')
 <div id="main">
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-4">
                                         <label>Full Name</label>
                                     </div>
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="col-md-4">
                                         <label>Position</label>
                                     </div>
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="col-md-4">
                                         <label>Salary</label>
                                     </div>
@@ -159,7 +159,7 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
                                         <a href="{{ route('form/view/detail') }}" class="btn btn-light-secondary me-1 mb-1">Back</a>
