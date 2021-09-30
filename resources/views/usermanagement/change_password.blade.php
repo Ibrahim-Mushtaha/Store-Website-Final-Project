@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.change_password')
 @endsection
 @section('content')
+<x-side_drawer/>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    
+
     {{-- message --}}
     {!! Toastr::message() !!}
 
@@ -37,7 +37,7 @@
                     <form method="POST" action="{{ route('change/password/db') }}" class="md-float-material">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" 
+                            <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror"
                             name="current_password" value="{{ old('current_password') }}" placeholder="Enter Old Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
@@ -48,9 +48,9 @@
                                 </span>
                             @enderror
                         </div>
-                        
+
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror" 
+                            <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror"
                             name="new_password" placeholder="Enter Current Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>

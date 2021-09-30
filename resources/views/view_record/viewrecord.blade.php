@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.viewrecord')
 @endsection
 @section('content')
+<x-side_drawer/>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -47,7 +47,7 @@
                                 <th>Department</th>
                                 <th>Salary</th>
                                 <th class="text-center">Modify</th>
-                            </tr>    
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $key => $item)
@@ -67,7 +67,7 @@
                                         </a>
                                         <a href="{{ url('form/view/detail/'.$item->id) }}">
                                             <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
-                                        </a>    
+                                        </a>
                                         <a href="{{ url('delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
                                     </td>
                                 </tr>

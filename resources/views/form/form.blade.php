@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.form_staff')
 @endsection
 @section('content')
+<x-side_drawer/>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    
+
     {{-- message --}}
     {!! Toastr::message() !!}
 
@@ -72,7 +72,7 @@
                                         <label class="form-check-label" for="male">Other</label>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-4">
                                     <label>Email Address</label>
                                 </div>
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-4">
                                     <label>Position</label>
                                 </div>
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-4">
                                     <label>Salary</label>
                                 </div>

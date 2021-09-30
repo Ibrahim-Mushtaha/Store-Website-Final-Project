@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.activity_log')
 @endsection
 @section('content')
+<x-side_drawer/>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -40,7 +40,7 @@
                                 <th>Email</th>
                                 <th>Description</th>
                                 <th>Date Time</th>
-                            </tr>    
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach ($activityLog as $key => $item)
