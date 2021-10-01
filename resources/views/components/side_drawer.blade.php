@@ -128,8 +128,8 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{ route('form/view/detail') }}">New Message</a>
-                            <a href="{{ route('form/view/detail') }}">Recent Messages</a>
+                            <a href="{{ route('form/view/message/new') }}">New Message</a>
+                            <a href="{{ route('form/view/message') }}">Recent Messages</a>
                         </li>
                     </ul>
                 </li>

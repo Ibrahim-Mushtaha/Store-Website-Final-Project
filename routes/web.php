@@ -101,5 +101,10 @@ Route::get('form/view/featured/stores', [App\Http\Controllers\FormController::cl
 Route::get('form/view/categories', [App\Http\Controllers\FormController::class, 'viewCategories'])->middleware('auth')->name('form/view/categories');
 
 
-// ----------------------------- order management ------------------------------//
+// ----------------------------- orders management ------------------------------//
 Route::get('form/view/orders', [App\Http\Controllers\FormController::class, 'viewOrders'])->middleware('auth')->name('form/view/orders');
+
+
+// ----------------------------- messages management ------------------------------//
+Route::get('form/view/message/new', [App\Http\Controllers\FormController::class, 'sendNewMassage'])->middleware('auth')->name('form/view/message/new');
+Route::get('form/view/message', [App\Http\Controllers\FormController::class, 'viewMessages'])->middleware('auth')->name('form/view/message');

@@ -55,7 +55,7 @@
                                     <td class="name">{{ $item->full_name }}</td>
                                     <td class="name">{{ $item->sex }}</td>
                                     <td class="email">{{ $item->email_address }}</td>
-                                    <td>rwerwerwerwer</td>
+                                    <td>some notes will be there</td>
                                     <td><img src="{{ URL::to('assets/images/samples/test_product.jpg') }}" alt="" height=96 width=124></td>
                                     <td class="text-center">
                                         <a href="{{ url('form/view/detail/'.$item->id) }}">
