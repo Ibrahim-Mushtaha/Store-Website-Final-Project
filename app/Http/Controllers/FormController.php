@@ -36,7 +36,7 @@ class FormController extends Controller
     {
         $data = DB::table('staff')->get();
         $type = 'allProduct';
-        return view('product_management.viewproducts',compact('data','type'));
+        return view('products.viewproducts',compact('data','type'));
     }
 
 
@@ -44,7 +44,7 @@ class FormController extends Controller
     {
         $data = DB::table('staff')->get();
         $type = 'featuredProduct';
-        return view('product_management.viewproducts',compact('data','type'));
+        return view('products.viewproducts',compact('data','type'));
     }
 
     public function viewCategories()
@@ -57,7 +57,7 @@ class FormController extends Controller
     {
         $data = DB::table('staff')->get();
         $type = 'allStores';
-        return view('stores_management.viewstores',compact('data','type'));
+        return view('stores.viewstores',compact('data','type'));
     }
 
 
@@ -65,7 +65,14 @@ class FormController extends Controller
     {
         $data = DB::table('staff')->get();
         $type = 'featuredStores';
-        return view('stores_management.viewstores',compact('data','type'));
+        return view('stores.viewstores',compact('data','type'));
+    }
+
+
+    public function viewOrders()
+    {
+        $data = DB::table('staff')->get();
+        return view('orders.vieworders',compact('data'));
     }
 
 

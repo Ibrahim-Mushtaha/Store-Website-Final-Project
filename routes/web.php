@@ -99,3 +99,7 @@ Route::get('form/view/featured/stores', [App\Http\Controllers\FormController::cl
 
 // ----------------------------- categories management ------------------------------//
 Route::get('form/view/categories', [App\Http\Controllers\FormController::class, 'viewCategories'])->middleware('auth')->name('form/view/categories');
+
+
+// ----------------------------- order management ------------------------------//
+Route::get('form/view/orders', [App\Http\Controllers\FormController::class, 'viewOrders'])->middleware('auth')->name('form/view/orders');

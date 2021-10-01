@@ -178,7 +178,7 @@ function create(input, value) {
         throw new ParchmentError("Unable to create " + input + " blot");
     }
     var BlotClass = match;
-    var node = 
+    var node =
     // @ts-ignore
     input instanceof Node || input['nodeType'] === Node.TEXT_NODE ? input : BlotClass.create(value);
     return new BlotClass(node, value);
@@ -2026,7 +2026,7 @@ var deepEqual = module.exports = function (actual, expected, opts) {
   // 7.4. For all other Object pairs, including Array objects, equivalence is
   // determined by having the same number of owned properties (as verified
   // with Object.prototype.hasOwnProperty.call), the same set of keys
-  // (although not necessarily the same order), equivalent values for every
+  // (although not necessarily the same orders), equivalent values for every
   // corresponding key, and an identical 'prototype' property. Note: this
   // accounts for both named and indexed properties on Arrays.
   } else {
@@ -2083,7 +2083,7 @@ function objEquiv(a, b, opts) {
   // hasOwnProperty)
   if (ka.length != kb.length)
     return false;
-  //the same set of keys (although not necessarily the same order),
+  //the same set of keys (although not necessarily the same orders),
   ka.sort();
   kb.sort();
   //~~~cheap key test
@@ -3332,7 +3332,7 @@ var ContainerBlot = /** @class */ (function (_super) {
     ContainerBlot.prototype.build = function () {
         var _this = this;
         this.children = new linked_list_1.default();
-        // Need to be reversed for if DOM nodes already in order
+        // Need to be reversed for if DOM nodes already in orders
         [].slice
             .call(this.domNode.childNodes)
             .reverse()
@@ -6452,7 +6452,7 @@ var ScrollBlot = /** @class */ (function (_super) {
                 mark(blot.parent);
         };
         var optimize = function (blot) {
-            // Post-order traversal
+            // Post-orders traversal
             if (
             // @ts-ignore
             blot.domNode[Registry.DATA_KEY] == null ||
@@ -8286,7 +8286,7 @@ function isLine(node) {
 }
 
 function traverse(node, elementMatchers, textMatchers) {
-  // Post-order
+  // Post-orders
   if (node.nodeType === node.TEXT_NODE) {
     return textMatchers.reduce(function (delta, matcher) {
       return matcher(node, delta);

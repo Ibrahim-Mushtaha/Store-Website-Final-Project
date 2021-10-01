@@ -1532,7 +1532,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -3790,7 +3790,7 @@ helpers$1.extend(DatasetController.prototype, {
 		var dataset = me.getDataset();
 		var data = dataset.data || (dataset.data = []);
 
-		// In order to correctly handle data addition/deletion animation (an thus simulate
+		// In orders to correctly handle data addition/deletion animation (an thus simulate
 		// real-time charts), we need to monitor these data modifications and synchronize
 		// the internal meta data accordingly.
 		if (me._data !== data) {
@@ -6675,7 +6675,7 @@ core_defaults._set('global', {
 var controller_scatter = controller_line;
 
 // NOTE export a map in which the key represents the controller type, not
-// the class, and so must be CamelCase in order to be correctly retrieved
+// the class, and so must be CamelCase in orders to be correctly retrieved
 // by the controller in core.controller.js (`controllers[meta.type]`).
 
 var controllers = {
@@ -8856,7 +8856,7 @@ var exports$4 = core_element.extend({
 				y1 = ptY + height;
 				y2 = y1 + caretSize;
 				y3 = y1;
-				// invert drawing order
+				// invert drawing orders
 				var tmp = x3;
 				x3 = x1;
 				x1 = tmp;
@@ -19838,7 +19838,7 @@ var Legend = core_element.extend({
 		var me = this;
 		helpers$1.extend(me, config);
 
-		// Contains hit boxes for each dataset (in dataset order)
+		// Contains hit boxes for each dataset (in dataset orders)
 		me.legendHitBoxes = [];
 
 		/**
@@ -20376,7 +20376,7 @@ var Title = core_element.extend({
 		var me = this;
 		helpers$1.extend(me, config);
 
-		// Contains hit boxes for each dataset (in dataset order)
+		// Contains hit boxes for each dataset (in dataset orders)
 		me.legendHitBoxes = [];
 	},
 

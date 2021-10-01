@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ URL::to('assets/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
+                    <a href="{{ route('home') }}"><img src="{{ URL::to('assets/images/logo/ic_logo.png') }}"  alt="Logo" srcset=""></a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -116,7 +116,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/orders') }}" class='sidebar-link'>
                         <i class="bi bi-card-list"></i>
                         <span>Orders</span>
                     </a>
