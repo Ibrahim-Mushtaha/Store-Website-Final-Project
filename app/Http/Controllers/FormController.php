@@ -76,6 +76,13 @@ class FormController extends Controller
     }
 
 
+    public function viewProfile($id)
+    {
+        $data = DB::table('staff')->where('id',$id)->get();
+        return view('profile.viewprofile',compact('data')
+        );
+    }
+
     // view update
     public function viewUpdate(Request $request)
     {

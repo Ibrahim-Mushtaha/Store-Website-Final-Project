@@ -133,12 +133,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
+<!--                <li class="sidebar-item">
                     <a href="{{ route('lock_screen') }}" class='sidebar-link'>
                         <i class="bi bi-lock-fill"></i>
                         <span>Lock Screen</span>
                     </a>
-                </li>
+                </li>-->
 
 
                 <li class="sidebar-item  has-sub">
@@ -148,8 +148,8 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{ route('form/view/detail') }}">View Profile</a>
-                            <a href="{{ route('form/view/detail') }}">Edit Profile</a>
+                            <a href="{{ route('lock_screen') }}">View Profile</a>
+                            <a href="{{ route('lock_screen') }}">Edit Profile</a>
                             <a href="{{ route('change/password') }}">Change Password</a>
                         </li>
                     </ul>

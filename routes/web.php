@@ -108,3 +108,8 @@ Route::get('form/view/orders', [App\Http\Controllers\FormController::class, 'vie
 // ----------------------------- messages management ------------------------------//
 Route::get('form/view/message/new', [App\Http\Controllers\FormController::class, 'sendNewMassage'])->middleware('auth')->name('form/view/message/new');
 Route::get('form/view/message', [App\Http\Controllers\FormController::class, 'viewMessages'])->middleware('auth')->name('form/view/message');
+
+
+// ----------------------------- profile management ------------------------------//
+Route::get('form/view/profile/{id}', [App\Http\Controllers\FormController::class, 'viewProfile'])->middleware('auth')->name('form/view/profile');
+
