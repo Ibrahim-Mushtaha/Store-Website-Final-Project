@@ -9,7 +9,6 @@ class CreateProductTable extends Migration
 
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
@@ -19,6 +18,7 @@ class CreateProductTable extends Migration
             $table->string("name")->nullable();
             $table->string("description")->nullable();
             $table->string("price")->nullable();
+            $table->string("category_id")->nullable();
             $table->string("provider_id")->nullable();
             $table->timestamps();
         });

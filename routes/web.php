@@ -5,6 +5,7 @@ use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\LockScreen;
@@ -98,7 +99,10 @@ Route::get('form/view/stores', [App\Http\Controllers\FormController::class, 'vie
 Route::get('form/view/featured/stores', [App\Http\Controllers\FormController::class, 'viewFeaturedStores'])->middleware('auth')->name('form/view/featured/stores');
 
 // ----------------------------- categories management ------------------------------//
-Route::get('form/view/categories', [App\Http\Controllers\FormController::class, 'viewCategories'])->middleware('auth')->name('form/view/categories');
+Route::get('form/view/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/categories/delete/{id}');
+Route::post('form/view/categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/categories/store');
+Route::get('form/view/categories/create', [App\Http\Controllers\CategoryController::class, 'createCategory'])->middleware('auth')->name('form/view/categories/create');
+Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
 
 
 // ----------------------------- orders management ------------------------------//

@@ -30,41 +30,51 @@
         {!! Toastr::message() !!}
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    Staff list
+                <div class="card-header pb-0">
+                    <div class="d-flex justify-content-between">
+
+                        <a class="btn btn-outline-primary btn-block" href="{{ url('form/view/categories/create') }}">Add Category</a>
+                    </div>
                 </div>
+                <br>
+
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>ID</th>
-                                <th>Category Name</th>
-                                <th>Product Quantities</th>
-                                <th>Product Image</th>
-                                <th class="text-center">Modify</th>
-                            </tr>
+                        <tr>
+                            <th class="border-bottom-0">#</th>
+                            <th class="border-bottom-0">Category Name</th>
+                            <th class="border-bottom-0">Category Image</th>
+                            <th class="border-bottom-0">Operations</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $key => $item)
-                                <tr>
-                                    <td class="id">{{ ++$key }}</td>
-                                    <td class="name">{{ $item->rec_id }}</td>
-                                    <td class="name">{{ $item->full_name }}</td>
-                                    <td class="name">{{ $item->sex }}</td>
-                                    <td><img src="{{ URL::to('assets/images/samples/test_product.jpg') }}" alt="" height=96 width=124></td>
-                                    <td class="text-center">
-                                        <a href="{{ url('form/view/detail/'.$item->id) }}">
-                                            <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
-                                        </a>
-                                        <a href="{{ url('delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        <?php $i =0?>
+                        @foreach($data as $x)
+                            <?php $i++?>
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$x->name}}</td>
+                            <td><img src="{{ 'http://127.0.0.1:8000/'.$x->image}}" alt="" height=80 width=124></td>
+                            <td>
+
+                                <a class="btn btn-primary btn-sm" data-effect="effect-scale"
+                                   data-id="test1" data-section_name="test1"
+                                   data-description="test1" data-toggle="modal" href="#exampleModal2"
+                                   title="تعديل"><i class="bi bi-pen"></i></a>
+
+                                <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
+                                   data-id="test1" data-section_name="test1" data-toggle="modal"
+                                   href="{{ route('form/view/categories/delete/'.$x->id) }}" title="حذف"><i class="bi bi-trash"></i></a>
+
+                            </td>
+                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </section>
     </div>
     <footer>
