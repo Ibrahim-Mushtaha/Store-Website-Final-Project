@@ -38,7 +38,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        $path = 'uploads/category/';
+        $path = 'public/uploads/category/';
         $image = $request->file('pic');
         $name = $path.time() . '.' . $image->getClientOriginalExtension();
         Storage::put($name,file_get_contents($image));

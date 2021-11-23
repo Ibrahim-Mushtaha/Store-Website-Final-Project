@@ -50,12 +50,12 @@
                         </thead>
                         <tbody>
                         <?php $i =0?>
-                        @foreach($data as $x)
+                        @foreach($data as $category)
                             <?php $i++?>
                         <tr>
                             <td>{{$i}}</td>
-                            <td>{{$x->name}}</td>
-                            <td><img src="{{ 'http://127.0.0.1:8000/'.$x->image}}" alt="" height=80 width=124></td>
+                            <td>{{$category->name}}</td>
+                            <td><img src="{{Storage::url($category->image)}}" alt="" height=80 width=124></td>
                             <td>
 
                                 <a class="btn btn-primary btn-sm" data-effect="effect-scale"
@@ -65,7 +65,7 @@
 
                                 <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                    data-id="test1" data-section_name="test1" data-toggle="modal"
-                                   href="{{ route('form/view/categories/delete/'.$x->id) }}" title="حذف"><i class="bi bi-trash"></i></a>
+                                   href="{{ url('form/view/categories/delete/'.$category->id) }}" title="حذف"><i class="bi bi-trash"></i></a>
 
                             </td>
                         </tr>
