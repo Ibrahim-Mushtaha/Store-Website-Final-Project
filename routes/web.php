@@ -99,10 +99,11 @@ Route::get('form/view/stores', [App\Http\Controllers\FormController::class, 'vie
 Route::get('form/view/featured/stores', [App\Http\Controllers\FormController::class, 'viewFeaturedStores'])->middleware('auth')->name('form/view/featured/stores');
 
 // ----------------------------- categories management ------------------------------//
+Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
 Route::get('form/view/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/categories/delete/{id}');
+Route::get('form/view/categories/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/categories/show/{id}');
 Route::post('form/view/categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/categories/store');
 Route::get('form/view/categories/create', [App\Http\Controllers\CategoryController::class, 'createCategory'])->middleware('auth')->name('form/view/categories/create');
-Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
 
 
 // ----------------------------- orders management ------------------------------//

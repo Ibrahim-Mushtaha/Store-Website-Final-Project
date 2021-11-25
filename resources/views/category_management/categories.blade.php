@@ -60,7 +60,7 @@
 
                                 <a class="btn btn-primary btn-sm" data-effect="effect-scale"
                                    data-id="test1" data-section_name="test1"
-                                   data-description="test1" data-toggle="modal" href="#exampleModal2"
+                                   data-description="test1" data-toggle="modal" href="{{ url('form/view/categories/show/'.$category->id) }}"
                                    title="تعديل"><i class="bi bi-pen"></i></a>
 
                                 <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
@@ -80,11 +80,11 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted ">
             <div class="float-start">
-                <p>2021 &copy; Soeng Souy</p>
+                <p>2021 &copy; Ibrahim Mushtaha</p>
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="http://soengsouy.com">Soeng Souy</a></p>
+                        href="https://ibrahim7portfolio.herokuapp.com/index.html">Ibrahim Mushtaha</a></p>
             </div>
         </div>
     </footer>

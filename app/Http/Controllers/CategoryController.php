@@ -48,7 +48,8 @@ class CategoryController extends Controller
         $category->image = $name;
         $category->save();
 
-        return redirect()->back();
+        $data = category::all();
+        return view('category_management.categories',compact('data'));
     }
 
     /**
@@ -57,9 +58,10 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(category $category)
+    public function show($id)
     {
-        //
+        $category =  category::where('id', $id)->get();
+        return view('category_management.add_category',compact('category'));
     }
 
     /**

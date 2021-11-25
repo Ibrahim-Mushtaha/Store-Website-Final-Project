@@ -49,7 +49,7 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Category Name" id="first-name-icon" name="category_name">
+                                                           placeholder="Category Name" id="first-name-icon" name="category_name" value="{{ $category[0]->name }}">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>
