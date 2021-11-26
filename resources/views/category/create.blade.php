@@ -34,9 +34,9 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <!-- action="{{ route('form/view/categories/store') }}"-->
+                        <!-- action="{{ route('form/view/categories/store') }}"-->
                             <form class="form form-horizontal" method="POST"
-                                enctype="multipart/form-data"  action="{{ route('form/view/categories/store') }}">
+                                  enctype="multipart/form-data"  action="{{ route('form/view/categories/store') }}">
                                 @csrf
                                 <input type="hidden" name="id" >
                                 <div class="form-body">
@@ -49,7 +49,7 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Category Name" id="first-name-icon" name="category_name" value="{{ $category[0]->name }}">
+                                                           placeholder="Category Name" id="first-name-icon" name="category_name">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>

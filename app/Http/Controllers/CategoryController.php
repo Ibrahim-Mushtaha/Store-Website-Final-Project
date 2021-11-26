@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = category::all();
-        return view('category_management.categories',compact('data'));
+        return view('category.index',compact('data'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
+        return view('category.create');
     }
 
     /**
@@ -48,8 +49,8 @@ class CategoryController extends Controller
         $category->image = $name;
         $category->save();
 
-        $data = category::all();
-        return view('category_management.categories',compact('data'));
+        Toastr::success('Category Added successfully :)','Success');
+        return redirect()->back();
     }
 
     /**
@@ -61,7 +62,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category =  category::where('id', $id)->get();
-        return view('category_management.add_category',compact('category'));
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -82,9 +83,16 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request,$id)
     {
-        //
+        $name = $request['category_name'];
+        $category = category::find($id);
+        $category ->name = $name;
+        $category->save();
+
+        Toastr::success('Category Updated successfully :)','Success');
+        $data = category::all();
+        return view('category.index',compact('data'));
     }
 
     /**
@@ -99,9 +107,4 @@ class CategoryController extends Controller
        return redirect()->back();
     }
 
-    public function createCategory()
-    {
-        $data = category::all();
-        return view('category_management.add_category',compact('data'));
-    }
 }

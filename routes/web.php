@@ -103,7 +103,8 @@ Route::get('form/view/categories', [App\Http\Controllers\CategoryController::cla
 Route::get('form/view/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/categories/delete/{id}');
 Route::get('form/view/categories/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/categories/show/{id}');
 Route::post('form/view/categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/categories/store');
-Route::get('form/view/categories/create', [App\Http\Controllers\CategoryController::class, 'createCategory'])->middleware('auth')->name('form/view/categories/create');
+Route::put('form/view/categories/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->middleware('auth')->name('form/view/categories/update/{id}');
+Route::get('form/view/categories/create', [App\Http\Controllers\CategoryController::class, 'create'])->middleware('auth')->name('form/view/categories/create');
 
 
 // ----------------------------- orders management ------------------------------//
