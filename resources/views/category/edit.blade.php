@@ -35,7 +35,7 @@
                     <div class="card-content">
                         <div class="card-body">
                             <form class="form form-horizontal" method="POST"
-                                  enctype="multipart/form-data"  action="{{ url('form/view/categories/update/'.$category[0]->id) }}">
+                                  enctype="multipart/form-data"  action="{{ url('form/view/category/update/'.$category[0]->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="id" >
@@ -76,7 +76,6 @@
 
                                         <div class="col-12 d-flex justify-content-end">
                                             <button  type="submit" class="btn btn-primary me-1 mb-1">Update</button>
-                                        <!-- <a href="{{ route('form/view/detail') }}" class="btn btn-light-secondary me-1 mb-1">Back</a>-->
                                         </div>
                                     </div>
                                 </div>

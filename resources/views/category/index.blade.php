@@ -33,7 +33,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
 
-                        <a class="btn btn-outline-primary btn-block" href="{{ url('form/view/categories/create') }}">Add Category</a>
+                        <a class="btn btn-outline-primary btn-block" href="{{ url('form/view/category/create') }}">Add Category</a>
                     </div>
                 </div>
                 <br>
@@ -60,12 +60,12 @@
 
                                 <a class="btn btn-primary btn-sm" data-effect="effect-scale"
                                    data-id="test1" data-section_name="test1"
-                                   data-description="test1" data-toggle="modal" href="{{ url('form/view/categories/show/'.$category->id) }}"
+                                   data-description="test1" data-toggle="modal" href="{{ url('form/view/category/show/'.$category->id) }}"
                                    title="تعديل"><i class="bi bi-pen"></i></a>
 
                                 <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                    data-id="test1" data-section_name="test1" data-toggle="modal"
-                                   href="{{ url('form/view/categories/delete/'.$category->id) }}" title="حذف"><i class="bi bi-trash"></i></a>
+                                   href="{{ url('form/view/category/delete/'.$category->id) }}" title="حذف"><i class="bi bi-trash"></i></a>
 
                             </td>
                         </tr>

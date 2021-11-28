@@ -94,17 +94,19 @@ Route::get('form/view/detail', [App\Http\Controllers\FormController::class, 'vie
 Route::get('form/view/products', [App\Http\Controllers\FormController::class, 'viewProducts'])->middleware('auth')->name('form/view/products');
 Route::get('form/view/featured/products', [App\Http\Controllers\FormController::class, 'viewFeaturedProducts'])->middleware('auth')->name('form/view/featured/products');
 
-// ----------------------------- stores management ------------------------------//
-Route::get('form/view/stores', [App\Http\Controllers\FormController::class, 'viewStores'])->middleware('auth')->name('form/view/stores');
-Route::get('form/view/featured/stores', [App\Http\Controllers\FormController::class, 'viewFeaturedStores'])->middleware('auth')->name('form/view/featured/stores');
+// ----------------------------- store management ------------------------------//
+Route::get('form/view/store', [App\Http\Controllers\StoreController::class, 'viewStores'])->middleware('auth')->name('form/view/store');
+Route::get('form/view/featured/store', [App\Http\Controllers\StoreController::class, 'viewFeaturedStores'])->middleware('auth')->name('form/view/featured/store');
+Route::get('form/view/store/create', [App\Http\Controllers\StoreController::class, 'create'])->middleware('auth')->name('form/view/store/create');
+Route::post('form/view/store/store', [App\Http\Controllers\StoreController::class, 'store'])->middleware('auth')->name('form/view/store/store');
 
 // ----------------------------- categories management ------------------------------//
 Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
-Route::get('form/view/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/categories/delete/{id}');
-Route::get('form/view/categories/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/categories/show/{id}');
-Route::post('form/view/categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/categories/store');
-Route::put('form/view/categories/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->middleware('auth')->name('form/view/categories/update/{id}');
-Route::get('form/view/categories/create', [App\Http\Controllers\CategoryController::class, 'create'])->middleware('auth')->name('form/view/categories/create');
+Route::get('form/view/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
+Route::get('form/view/category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/category/show/{id}');
+Route::post('form/view/category/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/category/store');
+Route::put('form/view/category/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->middleware('auth')->name('form/view/category/update/{id}');
+Route::get('form/view/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->middleware('auth')->name('form/view/category/create');
 
 
 // ----------------------------- orders management ------------------------------//

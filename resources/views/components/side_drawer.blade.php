@@ -102,14 +102,14 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('form/view/stores') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/store') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
                         <span>Stores</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('form/view/featured/stores') }}" class='sidebar-link'>
+                    <a href="{{ route('form/view/featured/store') }}" class='sidebar-link'>
                         <i class="bi bi-bookmark-star-fill"></i>
                         <span>Featured Stores</span>
                     </a>

@@ -5,7 +5,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                        <a href="index.html"><img src="assets/images/logo/ic_logo.png" alt="Logo"></a>
                     </div>
                     {{-- message --}}
                     {!! Toastr::message() !!}

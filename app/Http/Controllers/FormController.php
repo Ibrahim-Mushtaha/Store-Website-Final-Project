@@ -47,22 +47,6 @@ class FormController extends Controller
         return view('products.viewproducts',compact('data','type'));
     }
 
-    public function viewStores()
-    {
-        $data = DB::table('staff')->get();
-        $type = 'allStores';
-        return view('stores.viewstores',compact('data','type'));
-    }
-
-
-    public function viewFeaturedStores()
-    {
-        $data = DB::table('staff')->get();
-        $type = 'featuredStores';
-        return view('stores.viewstores',compact('data','type'));
-    }
-
-
     public function viewOrders()
     {
         $data = DB::table('staff')->get();

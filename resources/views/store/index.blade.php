@@ -34,20 +34,24 @@
         {!! Toastr::message() !!}
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    Staff list
+                @if($type == "allStores")
+                <div class="card-header pb-0">
+                    <div class="d-flex justify-content-between">
+
+                        <a class="btn btn-outline-primary btn-block" href="{{ route('form/view/store/create') }}">Add Store</a>
+                    </div>
                 </div>
+                @endif
+                <br>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>ID</th>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
-                                <th>Salary</th>
-                                <th>Product Image</th>
+                                <th>Store Name</th>
+                                <th>Description</th>
+                                <th>Store Image</th>
                                 <th class="text-center">Modify</th>
                             </tr>
                         </thead>
@@ -55,12 +59,10 @@
                             @foreach ($data as $key => $item)
                                 <tr>
                                     <td class="id">{{ ++$key }}</td>
-                                    <td class="name">{{ $item->rec_id }}</td>
-                                    <td class="name">{{ $item->full_name }}</td>
-                                    <td class="name">{{ $item->sex }}</td>
-                                    <td class="email">{{ $item->email_address }}</td>
-                                    <td class="phone_number">{{ $item->salary }}</td>
-                                    <td><img src="{{ URL::to('assets/images/samples/test_product.jpg') }}" alt="" height=96 width=124></td>
+                                    <td class="name">{{ $item->id }}</td>
+                                    <td class="name">{{ $item->name }}</td>
+                                    <td class="name">{{ $item->description }}</td>
+                                    <td><img src="{{Storage::url($item->image)}}"  height=80 width=124></td>
                                     <td class="text-center">
                                         <a href="{{ url('form/view/detail/'.$item->id) }}">
                                             <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
@@ -78,11 +80,11 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted ">
             <div class="float-start">
-                <p>2021 &copy; Soeng Souy</p>
+                <p>2021 &copy; Ibrahim Mushtaha</p>
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="http://soengsouy.com">Soeng Souy</a></p>
+                        href="https://ibrahim7portfolio.herokuapp.com/index.html">Ibrahim Mushtaha</a></p>
             </div>
         </div>
     </footer>
