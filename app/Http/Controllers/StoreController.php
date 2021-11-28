@@ -68,9 +68,8 @@ class StoreController extends Controller
         $store->description = $request->store_description;
         $store->category_id = $request->category_id;
         $store->image = $name;
-        if ($request->featured_store){
-            $store -> isFeaturedStore = true;
-        }
+        if ($request-> featured_store != null)
+        $store -> isFeaturedStore = $request->featured_store;
         $store->save();
 
         Toastr::success('Store Added successfully :)','Success');
@@ -97,9 +96,11 @@ class StoreController extends Controller
      * @param  \App\Models\store  $store
      * @return \Illuminate\Http\Response
      */
-    public function edit(store $store)
+    public function edit($id)
     {
-        //
+        $categories = category::all();
+        $store =  store::where('id', $id)->get();
+        return view('store.edit',compact('store','categories'));
     }
 
     /**
@@ -109,9 +110,39 @@ class StoreController extends Controller
      * @param  \App\Models\store  $store
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, store $store)
+    public function update(Request $request,$id)
     {
-        //
+
+
+        $name = $request['store_name'];
+        $description = $request['store_description'];
+        $category_id = $request['category_id'];
+
+        $store = store::find($id);
+        $store ->name = $name;
+        $store ->description = $description;
+        $store ->category_id = $category_id;
+        if ($request['featured_store'] != null) {
+            $featuredStore = $request['featured_store'];
+            $store->isFeaturedStore = $featuredStore;
+        }else{
+            $store->isFeaturedStore = false;
+        }
+        if ($request->hasFile('pic')){
+            $path = 'public/uploads/store/';
+            $image = $request->file('pic');
+            $name = $path.time() . '.' . $image->getClientOriginalExtension();
+            Storage::put($name,file_get_contents($image));
+            $store ->image = $name;
+        }
+
+        $store->save();
+
+        Toastr::success('Store Updated successfully :)','Success');
+
+        $data = store::all();
+        $type = 'allStores';
+        return view('store.index',compact('data','type'));
     }
 
     /**
@@ -120,8 +151,9 @@ class StoreController extends Controller
      * @param  \App\Models\store  $store
      * @return \Illuminate\Http\Response
      */
-    public function destroy(store $store)
+    public function destroy($id)
     {
-        //
+        store::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

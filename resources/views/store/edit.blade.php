@@ -13,14 +13,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Add Store</h3>
+                        <h3>Edit Store</h3>
                         <p class="text-subtitle text-muted">staff information list</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Add Store</li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit Store</li>
                             </ol>
                         </nav>
                     </div>
@@ -35,8 +35,9 @@
                     <div class="card-content">
                         <div class="card-body">
                             <form class="form form-horizontal" method="POST"
-                                  enctype="multipart/form-data"  action="{{ route('form/view/store/store') }}">
+                                  enctype="multipart/form-data"  action="{{ url('form/view/store/update/'.$store[0]->id) }}">
                                 @csrf
+                                @method('PUT')
                                 <input type="hidden" name="id" >
                                 <div class="form-body">
                                     <div class="row">
@@ -48,7 +49,7 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Store Name" id="first-name-icon" name="store_name">
+                                                           placeholder="Store Name" id="first-name-icon" name="store_name" value="{{ $store[0]->name }}">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>
@@ -63,7 +64,7 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Description" id="first-name-icon" name="store_description">
+                                                           placeholder="Description" id="first-name-icon" name="store_description" value="{{ $store[0]->description }}">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>
@@ -79,9 +80,13 @@
                                                 <div class="form-group position-relative has-icon-left mb-4">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" name="category_id" id="category_id">
-                                                            <option selected disabled>Select Category Name</option>
+                                                            <option disabled>Select Category Name</option>
                                                             @foreach($categories as $key => $item)
-                                                            <option value="{{$item->id}}">{{ $item->name  }}</option>
+                                                                @if($item->category_id == $store[0]->category_id)
+                                                                    <option value="{{$item->id}}" selected>{{ $item->name }}</option>
+                                                                @else
+                                                                    <option value="{{$item->id}}">{{ $item->name  }}</option>
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                         <div class="form-control-icon">
@@ -103,7 +108,11 @@
                                         <div class="col-md-8">
                                             <div class="form-group has-icon-left">
                                                 <div class="form-check form-check-lg d-flex align-items-end">
+                                                    @if($store[0]->isFeaturedStore != null)
+                                                    <input class="form-check-input me-2" type="checkbox" value="1"   name="featured_store" checked>
+                                                    @else
                                                     <input class="form-check-input me-2" type="checkbox" value="1"   name="featured_store">
+                                                    @endif
                                                     <label class="form-check-label text-gray-600" for="flexCheckDefault">
                                                         Featured Store
                                                     </label>

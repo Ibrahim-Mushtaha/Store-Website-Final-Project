@@ -96,7 +96,7 @@ class CategoryController extends Controller
         return view('category.index',compact('data'));
     }
 
-    /**
+    /**`
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\category  $category
@@ -104,7 +104,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        category::where('id', $id)->delete();
+        category::find($id)->delete();
        return redirect()->back();
     }
 

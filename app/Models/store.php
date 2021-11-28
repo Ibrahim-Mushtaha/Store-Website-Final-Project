@@ -10,4 +10,19 @@ class store extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+
+    protected static function booted()
+    {
+        static::deleted(function($category) {
+            $category->items()->delete();
+        });
+    }
+
+
+    public function items()
+    {
+        return $this->hasMany('App\ServiceItem');
+    }
+
 }

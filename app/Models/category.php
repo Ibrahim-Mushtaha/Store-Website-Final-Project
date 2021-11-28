@@ -11,4 +11,17 @@ class category extends Model
     use HasFactory;
     use SoftDeletes;
 
+
+    protected static function booted()
+    {
+        static::deleted(function($category) {
+            $category->stores()->delete();
+        });
+    }
+
+    public function stores()
+    {
+        return $this->hasMany(store::class);
+    }
+
 }

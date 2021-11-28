@@ -64,10 +64,10 @@
                                     <td class="name">{{ $item->description }}</td>
                                     <td><img src="{{Storage::url($item->image)}}"  height=80 width=124></td>
                                     <td class="text-center">
-                                        <a href="{{ url('form/view/detail/'.$item->id) }}">
+                                        <a href="{{ url('form/view/store/edit/'.$item->id) }}">
                                             <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
                                         </a>
-                                        <a href="{{ url('delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
+                                        <a href="{{ url('form/view/store/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
                                     </td>
                                 </tr>
                             @endforeach
