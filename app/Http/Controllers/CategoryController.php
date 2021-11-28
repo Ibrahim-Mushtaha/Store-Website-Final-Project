@@ -89,6 +89,14 @@ class CategoryController extends Controller
         $name = $request['category_name'];
         $category = category::find($id);
         $category ->name = $name;
+        if ($request->hasFile('pic')){
+            $path = 'public/uploads/category/';
+            $image = $request->file('pic');
+            $name = $path.time() . '.' . $image->getClientOriginalExtension();
+            Storage::put($name,file_get_contents($image));
+            $category ->image = $name;
+        }
+
         $category->save();
 
         Toastr::success('Category Updated successfully :)','Success');

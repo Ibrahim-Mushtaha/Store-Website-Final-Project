@@ -101,7 +101,7 @@ Route::get('form/view/store/create', [App\Http\Controllers\StoreController::clas
 Route::post('form/view/store/store', [App\Http\Controllers\StoreController::class, 'store'])->middleware('auth')->name('form/view/store/store');
 Route::get('form/view/store/edit/{id}', [App\Http\Controllers\StoreController::class, 'edit'])->middleware('auth')->name('form/view/store/edit/{id}');
 Route::put('form/view/store/update/{id}', [App\Http\Controllers\StoreController::class, 'update'])->middleware('auth')->name('form/view/store/update/{id}');
-Route::get('form/view/store/delete/{id}', [App\Http\Controllers\StoreController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
+Route::get('form/view/store/delete/{id}', [App\Http\Controllers\StoreController::class, 'destroy'])->middleware('auth')->name('form/view/store/delete/{id}');
 
 
 // ----------------------------- categories management ------------------------------//
