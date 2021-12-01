@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\store;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,6 +20,13 @@ class CategoryController extends Controller
     {
         $data = category::all();
         return view('category.index',compact('data'));
+    }
+
+    public function categoryStore()
+    {
+        $data = category::all();
+        $stores = store::all();
+        return view('home.home',compact('data','stores'));
     }
 
     /**

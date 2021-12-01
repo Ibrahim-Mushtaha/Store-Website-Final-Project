@@ -106,6 +106,7 @@ Route::get('form/view/store/delete/{id}', [App\Http\Controllers\StoreController:
 
 // ----------------------------- categories management ------------------------------//
 Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
+Route::get('form/view/categoryStore', [App\Http\Controllers\CategoryController::class, 'categoryStore'])->middleware('auth')->name('form/view/categoryStore');
 Route::get('form/view/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
 Route::get('form/view/category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/category/show/{id}');
 Route::post('form/view/category/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/category/store');

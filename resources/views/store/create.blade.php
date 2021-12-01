@@ -35,9 +35,9 @@
                     <div class="card-content">
                         <div class="card-body">
                             <form class="form form-horizontal" method="POST"
-                                  enctype="multipart/form-data"  action="{{ route('form/view/store/store') }}">
+                                  enctype="multipart/form-data" action="{{ route('form/view/store/store') }}">
                                 @csrf
-                                <input type="hidden" name="id" >
+                                <input type="hidden" name="id">
                                 <div class="form-body">
                                     <div class="row">
 
@@ -48,7 +48,8 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Store Name" id="first-name-icon" name="store_name">
+                                                           placeholder="Store Name" id="first-name-icon"
+                                                           name="store_name">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>
@@ -63,7 +64,8 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <input type="text" class="form-control"
-                                                           placeholder="Description" id="first-name-icon" name="store_description">
+                                                           placeholder="Description" id="first-name-icon"
+                                                           name="store_description">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>
                                                     </div>
@@ -81,7 +83,8 @@
                                                         <select class="form-select" name="category_id" id="category_id">
                                                             <option selected disabled>Select Category Name</option>
                                                             @foreach($categories as $key => $item)
-                                                            <option value="{{$item->id}}">{{ $item->name  }}</option>
+                                                                <option
+                                                                    value="{{$item->id}}">{{ $item->name  }}</option>
                                                             @endforeach
                                                         </select>
                                                         <div class="form-control-icon">
@@ -103,8 +106,10 @@
                                         <div class="col-md-8">
                                             <div class="form-group has-icon-left">
                                                 <div class="form-check form-check-lg d-flex align-items-end">
-                                                    <input class="form-check-input me-2" type="checkbox" value="1"   name="featured_store">
-                                                    <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                                                    <input class="form-check-input me-2" type="checkbox" value="1"
+                                                           name="featured_store">
+                                                    <label class="form-check-label text-gray-600"
+                                                           for="flexCheckDefault">
                                                         Featured Store
                                                     </label>
                                                 </div>
@@ -120,16 +125,19 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
                                                     <div class="col-sm-12 col-md-12">
-                                                        <p class="text-danger">* file format must be jpeg ,.jpg , png </p>
-                                                        <input type="file" name="pic" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                                                               data-height="70" />
-                                                    </div><br>
+                                                        <p class="text-danger">* file format must be jpeg ,.jpg ,
+                                                            png </p>
+                                                        <input type="file" name="pic" class="dropify"
+                                                               accept=".pdf,.jpg, .png, image/jpeg, image/png"
+                                                               data-height="70"/>
+                                                    </div>
+                                                    <br>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-end">
-                                            <button  type="submit" class="btn btn-primary me-1 mb-1">Save</button>
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
                                         </div>
                                     </div>
                                 </div>
