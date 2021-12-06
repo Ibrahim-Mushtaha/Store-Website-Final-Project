@@ -26,7 +26,19 @@ class CategoryController extends Controller
     {
         $data = category::all();
         $stores = store::all();
-        return view('home.home',compact('data','stores'));
+        $categoryID = '#';
+        return view('home.home',compact('data','stores','categoryID'));
+    }
+
+    public function StoreByID($id)
+    {
+        $categoryID = $id;
+        $data = category::all();
+        if ($id == '#')
+        $stores = store::all();
+    else
+        $stores = store::where('category_id', $id)->get();
+        return view('home.home',compact('data','stores','categoryID'));
     }
 
     /**

@@ -11,22 +11,39 @@
                 <div class="sidebar-wrapper active">
                     <div class="sidebar-menu">
                         <ul class="menu">
+                            @if($categoryID == '#')
                             <li class="sidebar-item active">
-                                <a class='sidebar-link'>
+                                <a href="{{ url('form/view/categoryStore/'.'#') }}" class='sidebar-link'>
                                     <i class="bi bi-house-fill"></i>
                                     <span>All Category</span>
                                 </a>
                             </li>
-
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ url('form/view/categoryStore/'.'#') }}" class='sidebar-link'>
+                                        <i class="bi bi-house-fill"></i>
+                                        <span>All Category</span>
+                                    </a>
+                                </li>
+                            @endif
                             <?php $i =0?>
                             @foreach($data as $category)
                                 <?php $i++?>
-                                <li class="sidebar-item">
-                                    <a href="" class='sidebar-link'>
-                                        <i class="bi bi-inbox-fill"></i>
-                                        <span>{{$category -> name}}</span>
-                                    </a>
-                                </li>
+                                    @if($categoryID == $category->id)
+                                        <li class="sidebar-item active">
+                                            <a href="{{ url('form/view/categoryStore/'.$category->id) }}" class='sidebar-link'>
+                                                <i class="bi bi-inbox-fill"></i>
+                                                <span>{{$category -> name}}</span>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ url('form/view/categoryStore/'.$category->id) }}" class='sidebar-link'>
+                                                <i class="bi bi-inbox-fill"></i>
+                                                <span>{{$category -> name}}</span>
+                                            </a>
+                                        </li>
+                                    @endif
                             @endforeach
                         </ul>
                     </div>
@@ -56,8 +73,7 @@
                                 <div class="d-flex product-sale">
                                     <i class="mdi mdi-heart text-danger ml-auto wishlist"></i>
                                 </div>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#Modal-location"><img src="{{Storage::url($store->image)}}"  width=100% height=300 alt="">
-
+                                <a href="#exampleModal2" data-bs-toggle="modal" data-bs-target="#Modal-location"><img src="{{Storage::url($store->image)}}"  width=100% height=300 alt=""></a>
                                 <a href="#" class="adtocart"> <i class="las la-shopping-cart "></i>
                                 </a>
                             </div>
@@ -97,10 +113,7 @@
             </footer>
         </div>
     </div>
-    <!-- row closed -->
-    <!-- Container closed -->
-    </div>
-    <!-- main-content closed -->
+
 @endsection
 @section('js')
     <!-- Internal Nice-select js-->
