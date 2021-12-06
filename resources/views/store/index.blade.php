@@ -51,6 +51,7 @@
                                 <th>ID</th>
                                 <th>Store Name</th>
                                 <th>Description</th>
+                                <th>Store Rating</th>
                                 <th>Store Image</th>
                                 <th class="text-center">Modify</th>
                             </tr>
@@ -62,6 +63,19 @@
                                     <td class="name">{{ $item->id }}</td>
                                     <td class="name">{{ $item->name }}</td>
                                     <td class="name">{{ $item->description }}</td>
+                                    <td class="name">
+                                        @if (count($item->rating) > 0)
+                                          @for ($i =0 ; $i <ceil($item->rating[0]->rate) ; $i++)
+                                            <i class="bi bi-star"></i>
+                                            @endfor
+                                            @for ($i =0 ; $i <5-ceil($item->rating[0]->rate) ; $i++)
+                                                <i class="bi bi-star-outline"></i>
+                                            @endfor
+                                            @else
+                                            @for ($i =0 ; $i <5 ; $i++)
+                                            <i class="bi bi-shield-lock"></i>
+                                                @endfor
+                                            @endif</th>
                                     <td><img src="{{Storage::url($item->image)}}"  height=80 width=124></td>
                                     <td class="text-center">
                                         <a href="{{ url('form/view/store/edit/'.$item->id) }}">

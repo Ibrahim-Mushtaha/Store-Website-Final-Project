@@ -11,7 +11,7 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->unique();
+            $table->string('user_id');
             $table->unsignedBigInteger('store_id');
             $table->foreign('store_id')-> references('id')-> on('stores')->onDelete('cascade');
             $table->double('rate');

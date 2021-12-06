@@ -25,4 +25,16 @@ class store extends Model
         return $this->hasMany('App\ServiceItem');
     }
 
+    public function rating()
+    {
+        return $this->hasMany(rating::class)
+         ->selectRaw('count(store_id) as s, store_id, sum(rate)/count(store_id) as rate') ->groupBy('store_id');
+    }
+
+
+    public function ratings()
+    {
+        return $this->hasMany(rating::class);
+    }
+
 }
