@@ -26,7 +26,15 @@
                     </div>
                 </div>
             </div>
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -47,7 +55,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" class="form-control @error('store_name') is-invalid @enderror"
                                                            placeholder="Store Name" id="first-name-icon"
                                                            name="store_name">
                                                     <div class="form-control-icon">
@@ -63,7 +71,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" class="form-control @error('store_description') is-invalid @enderror"
                                                            placeholder="Description" id="first-name-icon"
                                                            name="store_description">
                                                     <div class="form-control-icon">
@@ -80,7 +88,7 @@
                                             <div class="form-group has-icon-left">
                                                 <div class="form-group position-relative has-icon-left mb-4">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" name="category_id" id="category_id">
+                                                        <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
                                                             <option selected disabled>Select Category Name</option>
                                                             @foreach($categories as $key => $item)
                                                                 <option

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\category;
 use App\Models\store;
 use Brian2694\Toastr\Facades\Toastr;
@@ -57,7 +58,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
 
         $path = 'public/uploads/category/';
@@ -71,7 +72,8 @@ class CategoryController extends Controller
         $category->save();
 
         Toastr::success('Category Added successfully :)','Success');
-        return redirect()->back();
+        $data = category::all();
+        return view('category.index',compact('data'));
     }
 
     /**
@@ -104,7 +106,7 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(CategoryRequest $request,$id)
     {
         $name = $request['category_name'];
         $category = category::find($id);

@@ -27,6 +27,16 @@
                 </div>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -47,7 +57,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group has-icon-left">
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" class="form-control  @error('category_name') is-invalid @enderror"
                                                            placeholder="Category Name" id="first-name-icon" name="category_name">
                                                     <div class="form-control-icon">
                                                         <i class="bi bi-inbox-fill"></i>

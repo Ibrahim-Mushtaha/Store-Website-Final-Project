@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRequest;
 use App\Models\category;
 use App\Models\store;
 use Brian2694\Toastr\Facades\Toastr;
@@ -55,7 +56,7 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $path = 'public/uploads/store/';
         $image = $request->file('pic');
@@ -110,7 +111,7 @@ class StoreController extends Controller
      * @param  \App\Models\store  $store
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(StoreRequest $request,$id)
     {
 
 
