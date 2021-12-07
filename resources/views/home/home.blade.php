@@ -66,29 +66,153 @@
                 <?php $i =0?>
                 @foreach($stores as $store)
                     <?php $i++?>
-                <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="pro-img-box">
-                                <div class="d-flex product-sale">
-                                    <i class="mdi mdi-heart text-danger ml-auto wishlist"></i>
+
+                        <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="pro-img-box">
+                                        <div class="d-flex product-sale">
+                                            <i class="mdi mdi-heart text-danger ml-auto wishlist"></i>
+                                        </div>
+                                        <a href="#exampleModal2" data-bs-toggle="modal" data-bs-target="#Modal-location"><img src="{{Storage::url($store->image)}}"  width=100% height=300 alt=""></a>
+                                        <a href="#" class="adtocart"> <i class="las la-shopping-cart "></i>
+                                        </a>
+                                    </div>
+                                    <div class="text-center pt-3">
+                                        <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase">{{ $store->name }}</h3>
+                                        <button class=" m-auto btn btn-primary w-50"  data-bs-toggle="modal" data-bs-target="#edit{{$store->id}}">
+                                            <i class="ion ion-md-star text-warning"></i> Rating</button>
+                                        <span class="tx-15 ml-auto">
+                                                        <i class="ion ion-md-star text-warning"></i>
+                                                        <i class="ion ion-md-star text-warning"></i>
+                                                        <i class="ion ion-md-star text-warning"></i>
+                                                        <i class="ion ion-md-star-half text-warning"></i>
+                                                        <i class="ion ion-md-star-outline text-warning"></i>
+                                                    </span>
+                                    </div>
+
                                 </div>
-                                <a href="#exampleModal2" data-bs-toggle="modal" data-bs-target="#Modal-location"><img src="{{Storage::url($store->image)}}"  width=100% height=300 alt=""></a>
-                                <a href="#" class="adtocart"> <i class="las la-shopping-cart "></i>
-                                </a>
+
                             </div>
-                            <div class="text-center pt-3">
-                                <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase">{{ $store->name }}</h3>
-                                <span class="tx-15 ml-auto">
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star-half text-warning"></i>
-												<i class="ion ion-md-star-outline text-warning"></i>
-											</span>
-                            </div>
+
                         </div>
 
+
+
+                <div class="modal fade" id="edit{{$store->id}}" tabindex="-1" aria-labelledby="edit" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Rating {{ $store->name }}</h5>
+                        </div>
+                        <div class="modal-body m-auto">
+                            <div class="card-body pt-0 ">
+                                @if(count($store->ratings) > 0 )
+                                @foreach ($store->ratings as $ra )
+                                @if($ra->user_id == $_SERVER['REMOTE_ADDR'])
+                                    <form method="POST" action="{{URL("form/view/rating/update")}}" >
+                                        @csrf
+                                        @method("PUT")
+                                     <div>
+                                         <div class="rate">
+                                        <input  type="radio" id="star5" name="rate" value="5"  @if (ceil($ra->rate) == 5)
+                                                checked
+                                        @endif/>
+                                        <label for="star5" title="text">5 stars</label>
+                                        <input type="radio" id="star4" name="rate" value="4"  @if (ceil($ra->rate) == 4)
+                                        checked
+                                        @endif />
+                                        <label for="star4" title="text">4 stars</label>
+                                        <input type="radio" id="star3" name="rate" value="3" @if (ceil($ra->rate) == 3)
+                                        checked
+                                        @endif  />
+                                        <label for="star3" title="text">3 stars</label>
+                                        <input type="radio" id="star2" name="rate" value="2" @if (ceil($ra->rate) == 3)
+                                        checked
+                                            @endif />
+                                        <label for="star2" title="text">2 stars</label>
+                                        <input type="radio" id="star1" name="rate" value="1" @if (ceil($ra->rate) == 1)
+                                        checked
+                                        @endif />
+                                        <label for="star1" title="text">1 star</label>
+                                        <input type="hidden" id="store_id" name="store_id" value="{{$store->id}}" />
+                                        <input type="hidden" name="userIP" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+                                    </div>
+                                    <div class="action">
+                                        <button class="add-to-cart btn btn-success" type="submit">Send Rating</button>
+                                    </div>
+                                   </form>
+                                   @break
+                                   @endif
+                                   @if ($loop->index+1 == count($store->ratings))
+                                   <form method="POST" action="{{URL("form/view/rating") }}" >
+                                    @csrf
+                                        <div class="rate">
+                                            <input  type="radio" id="star5" name="rate" value="5" />
+                                            <label for="star5" title="text">5 stars</label>
+                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <label for="star4" title="text">4 stars</label>
+                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <label for="star3" title="text">3 stars</label>
+                                            <input type="radio" id="star2" name="rate" value="2"  checked/>
+                                            <label for="star2" title="text">2 stars</label>
+                                            <input type="radio" id="star1" name="rate" value="1"/>
+                                            <label for="star1" title="text">1 star</label>
+                                            <input type="hidden" id="store_id" name="store_id" value="{{$store->id}}" />
+                                            <input type="hidden" name="userIP" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+                                        </div>
+                                        <div class="action">
+                                            <button class="add-to-cart btn btn-success" type="submit">Send Rating</button>
+                                        </div>
+                                   </form>
+                                   @endif
+                                   @endforeach
+                                @else
+                                <form method="POST" action="{{URL("form/view/rating") }}" >
+                                    @csrf
+                                        <div class="rate">
+                                            <input  type="radio" id="star5" name="rate" value="5" />
+                                            <label for="star5" title="text">5 stars</label>
+                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <label for="star4" title="text">4 stars</label>
+                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <label for="star3" title="text">3 stars</label>
+                                            <input type="radio" id="star2" name="rate" value="2" checked/>
+                                            <label for="star2" title="text">2 stars</label>
+                                            <input type="radio" id="star1" name="rate" value="1"/>
+                                            <label for="star1" title="text">1 star</label>
+                                            <input type="hidden" id="store_id" name="store_id" value="{{$store->id}}" />
+                                            <input type="hidden" name="userIP" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+                                        </div>
+                                        <div class="action">
+                                            <button class="add-to-cart btn btn-success" type="submit">Send Rating</button>
+                                        </div>
+                                   </form>
+                                @endif
+                                {{-- <form method="POST" action="{{URL("form/view/rating")}}" >
+                                    @csrf
+                                    <div class="rate">
+                                        <input  type="radio" id="star5" name="rate" value="5" />
+                                        <label for="star5" title="text">5 stars</label>
+                                        <input type="radio" id="star4" name="rate" value="4" />
+                                        <label for="star4" title="text">4 stars</label>
+                                        <input type="radio" id="star3" name="rate" value="3" />
+                                        <label for="star3" title="text">3 stars</label>
+                                        <input type="radio" id="star2" name="rate" value="2" />
+                                        <label for="star2" title="text">2 stars</label>
+                                        <input type="radio" id="star1" name="rate" value="1" checked/>
+                                        <label for="star1" title="text">1 star</label>
+                                        <input type="hidden" id="store_id" name="store_id" value="{{$store->id}}" />
+                                        <input type="hidden" name="userIP" value="43">
+                                    </div>
+                                    <div class="action">
+                                        <button class="add-to-cart btn btn-success" type="submit">Send Rating</button>
+                                    </div>
+                                </form> --}}
+                            </div>
+                        </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
                 @endforeach

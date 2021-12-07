@@ -107,7 +107,7 @@ Route::get('form/view/store/delete/{id}', [App\Http\Controllers\StoreController:
 // ----------------------------- categories management ------------------------------//
 Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
 Route::get('form/view/categoryStore/{id}', [App\Http\Controllers\CategoryController::class, 'StoreByID'])->middleware('auth')->name('form/view/categoryStore/{id}');
-Route::get('form/view/categoryStore', [App\Http\Controllers\CategoryController::class, 'categoryStore'])->middleware('auth')->name('form/view/categoryStore');
+Route::get('form/view/categoryStore', [App\Http\Controllers\CategoryController::class, 'categoryStore'])->name('form/view/categoryStore');
 Route::get('form/view/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
 Route::get('form/view/category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/category/show/{id}');
 Route::post('form/view/category/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/category/store');
@@ -126,4 +126,8 @@ Route::get('form/view/message', [App\Http\Controllers\FormController::class, 'vi
 
 // ----------------------------- profile management ------------------------------//
 Route::get('form/view/profile/{id}', [App\Http\Controllers\FormController::class, 'viewProfile'])->middleware('auth')->name('form/view/profile');
+
+Route::post('form/view/rating', [App\Http\Controllers\RatingController::class, 'store'])->name('form/view/rating');
+Route::put('form/view/rating/update', [App\Http\Controllers\RatingController::class, 'update'])->name('form/view/rating/update');
+
 
