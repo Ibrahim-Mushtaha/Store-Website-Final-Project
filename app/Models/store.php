@@ -11,6 +11,7 @@ class store extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = ["name"];
 
     protected static function booted()
     {
