@@ -13,49 +13,17 @@ class CategoryController extends Controller
 {
 
 
-    public function index()
-    {
-        $data = category::all();
-        return view('category.index',compact('data'));
-    }
-
-    public function categoryStore()
-    {
-        $data = category::all();
-        $stores = store::all();
-        $categoryID = '#';
-        return view('home.home',compact('data','stores','categoryID'));
-    }
-
-    public function StoreByID($id)
-    {
-        $categoryID = $id;
-        $data = category::all();
-        if ($id == '#')
-        $stores = store::all();
-    else
-        $stores = store::where('category_id', $id)->get();
-        return view('home.home',compact('data','stores','categoryID'));
-    }
-
-    public function StoreByName(Request $request)
-    {
-        $categoryID = '#';
-        $data = category::all();
-        $stores = store::where('name', $request['search'])->get();
-        return view('home.home',compact('data','stores','categoryID'));
-    }
-
-
-    public function create()
-    {
+    public function create(){
         return view('category.create');
     }
 
 
-    public function store(CategoryRequest $request)
-    {
+    public function index(){
+        $data = category::all();
+        return view('category.index',compact('data'));
+    }
 
+    public function store(CategoryRequest $request){
         $path = 'public/uploads/category/';
         $image = $request->file('pic');
         $name = $path.time() . '.' . $image->getClientOriginalExtension();
@@ -71,22 +39,12 @@ class CategoryController extends Controller
         return view('category.index',compact('data'));
     }
 
-
-    public function show($id)
-    {
+    public function edit($id){
         $category =  category::where('id', $id)->get();
         return view('category.edit',compact('category'));
     }
 
-
-    public function edit(category $category)
-    {
-        //
-    }
-
-
-    public function update(CategoryRequest $request,$id)
-    {
+    public function update(CategoryRequest $request,$id){
         $name = $request['category_name'];
         $category = category::find($id);
         $category ->name = $name;
@@ -99,16 +57,48 @@ class CategoryController extends Controller
         }
 
         $category->save();
-
         Toastr::success('Category Updated successfully :)','Success');
         $data = category::all();
         return view('category.index',compact('data'));
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         category::find($id)->delete();
        return redirect()->back();
+    }
+
+
+
+
+
+
+
+
+    public function categoryStore()
+    {
+        $data = category::all();
+        $stores = store::all();
+        $categoryID = '#';
+        return view('home.home',compact('data','stores','categoryID'));
+    }
+
+    public function StoreByID($id)
+    {
+        $categoryID = $id;
+        $data = category::all();
+        if ($id == '#')
+            $stores = store::all();
+        else
+            $stores = store::where('category_id', $id)->get();
+        return view('home.home',compact('data','stores','categoryID'));
+    }
+
+    public function StoreByName(Request $request)
+    {
+        $categoryID = '#';
+        $data = category::all();
+        $stores = store::where('name', $request['search'])->get();
+        return view('home.home',compact('data','stores','categoryID'));
     }
 
 }

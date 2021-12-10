@@ -98,7 +98,7 @@ Route::get('form/view/categoryStore/{id}', [App\Http\Controllers\CategoryControl
 Route::get('form/view/search/', [App\Http\Controllers\CategoryController::class, 'StoreByName'])->name('form/view/search/');
 Route::get('form/view/categoryStore', [App\Http\Controllers\CategoryController::class, 'categoryStore'])->name('form/view/categoryStore');
 Route::get('form/view/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
-Route::get('form/view/category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/category/show/{id}');
+Route::get('form/view/category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->middleware('auth')->name('form/view/category/edit/{id}');
 Route::post('form/view/category/store', [App\Http\Controllers\CategoryController::class, 'store'])->middleware('auth')->name('form/view/category/store');
 Route::put('form/view/category/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->middleware('auth')->name('form/view/category/update/{id}');
 Route::get('form/view/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->middleware('auth')->name('form/view/category/create');

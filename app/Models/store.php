@@ -13,19 +13,6 @@ class store extends Model
 
     protected $fillable = ["name"];
 
-    protected static function booted()
-    {
-        static::deleted(function($category) {
-            $category->items()->delete();
-        });
-    }
-
-
-    public function items()
-    {
-        return $this->hasMany('App\ServiceItem');
-    }
-
     public function rating()
     {
         return $this->hasMany(rating::class)

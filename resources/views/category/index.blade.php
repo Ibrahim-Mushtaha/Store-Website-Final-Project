@@ -60,7 +60,7 @@
 
                                 <a class="btn btn-primary btn-sm" data-effect="effect-scale"
                                    data-id="test1" data-section_name="test1"
-                                   data-description="test1" data-toggle="modal" href="{{ url('form/view/category/show/'.$category->id) }}"
+                                   data-description="test1" data-toggle="modal" href="{{ url('form/view/category/edit/'.$category->id) }}"
                                    title="تعديل"><i class="bi bi-pen"></i></a>
 
                                 <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"

@@ -12,31 +12,24 @@ use Illuminate\Support\Facades\Storage;
 class StoreController extends Controller
 {
 
-    public function viewStores()
-    {
+    public function viewStores(){
         $data = store::paginate(1);
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
 
-
-    public function viewFeaturedStores()
-    {
-        $data = store::paginate(1);
+    public function viewFeaturedStores(){
+        $data = store::where('isFeaturedStore','1')->paginate(1);
         $type = 'featuredStores';
         return view('store.index',compact('data','type'));
     }
 
-
-    public function create()
-    {
+    public function create(){
         $categories = category::all();
         return view('store.create',compact('categories'));
     }
 
-
-    public function store(StoreRequest $request)
-    {
+    public function store(StoreRequest $request){
         $path = 'public/uploads/store/';
         $image = $request->file('pic');
         $name = $path.time() . '.' . $image->getClientOriginalExtension();
@@ -59,23 +52,13 @@ class StoreController extends Controller
         return view('store.index',compact('data','type'));
     }
 
-
-    public function show(store $store)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
+    public function edit($id){
         $categories = category::all();
         $store =  store::where('id', $id)->get();
         return view('store.edit',compact('store','categories'));
     }
 
-    public function update(StoreRequest $request,$id)
-    {
-
-
+    public function update(StoreRequest $request,$id){
         $name = $request['store_name'];
         $description = $request['store_description'];
         $category_id = $request['category_id'];
@@ -97,19 +80,16 @@ class StoreController extends Controller
             Storage::put($name,file_get_contents($image));
             $store ->image = $name;
         }
-
         $store->save();
-
         Toastr::success('Store Updated successfully :)','Success');
-
         $data = store::all();
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         store::where('id', $id)->delete();
         return redirect()->back();
     }
+
 }
