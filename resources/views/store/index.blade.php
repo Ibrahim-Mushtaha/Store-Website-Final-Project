@@ -90,6 +90,7 @@
                 </div>
             </div>
         </section>
+        <div class="m-auto">{{$data->links()}}</div>
     </div>
     <footer>
         <div class="footer clearfix mb-0 text-muted ">

@@ -54,12 +54,14 @@
         <div class="col-xl-9 col-lg-9 col-md-9">
             <div class="card" style="margin-right: 16px; margin-top: 16px">
                 <div class="card-body p-2" style="margin-right: 16px">
+                    <form class="form form-horizontal" method="GET" action="{{ route('form/view/search/') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search ...">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Search ...">
                         <span class="input-group-append" style="margin-left: 16px">
-										<button class="btn btn-primary" type="button">Search</button>
+										<button class="btn btn-primary" type="submit">Search</button>
 									</span>
                     </div>
+                    </form>
                 </div>
             </div>
             <div class="row row-sm" style="margin-right: 16px">

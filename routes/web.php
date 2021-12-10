@@ -10,18 +10,6 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\LockScreen;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -107,6 +95,7 @@ Route::get('form/view/store/delete/{id}', [App\Http\Controllers\StoreController:
 // ----------------------------- categories management ------------------------------//
 Route::get('form/view/categories', [App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')->name('form/view/categories');
 Route::get('form/view/categoryStore/{id}', [App\Http\Controllers\CategoryController::class, 'StoreByID'])->middleware('auth')->name('form/view/categoryStore/{id}');
+Route::get('form/view/search/', [App\Http\Controllers\CategoryController::class, 'StoreByName'])->name('form/view/search/');
 Route::get('form/view/categoryStore', [App\Http\Controllers\CategoryController::class, 'categoryStore'])->name('form/view/categoryStore');
 Route::get('form/view/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->middleware('auth')->name('form/view/category/delete/{id}');
 Route::get('form/view/category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->middleware('auth')->name('form/view/category/show/{id}');
@@ -114,20 +103,17 @@ Route::post('form/view/category/store', [App\Http\Controllers\CategoryController
 Route::put('form/view/category/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->middleware('auth')->name('form/view/category/update/{id}');
 Route::get('form/view/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->middleware('auth')->name('form/view/category/create');
 
+// ----------------------------- rating ------------------------------//
+Route::post('form/view/rating', [App\Http\Controllers\RatingController::class, 'store'])->name('form/view/rating');
+Route::put('form/view/rating/update', [App\Http\Controllers\RatingController::class, 'update'])->name('form/view/rating/update');
+
 
 // ----------------------------- orders management ------------------------------//
 Route::get('form/view/orders', [App\Http\Controllers\FormController::class, 'viewOrders'])->middleware('auth')->name('form/view/orders');
-
 
 // ----------------------------- messages management ------------------------------//
 Route::get('form/view/message/new', [App\Http\Controllers\FormController::class, 'sendNewMassage'])->middleware('auth')->name('form/view/message/new');
 Route::get('form/view/message', [App\Http\Controllers\FormController::class, 'viewMessages'])->middleware('auth')->name('form/view/message');
 
-
 // ----------------------------- profile management ------------------------------//
 Route::get('form/view/profile/{id}', [App\Http\Controllers\FormController::class, 'viewProfile'])->middleware('auth')->name('form/view/profile');
-
-Route::post('form/view/rating', [App\Http\Controllers\RatingController::class, 'store'])->name('form/view/rating');
-Route::put('form/view/rating/update', [App\Http\Controllers\RatingController::class, 'update'])->name('form/view/rating/update');
-
-

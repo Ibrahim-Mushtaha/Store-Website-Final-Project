@@ -12,21 +12,9 @@ use Illuminate\Support\Facades\Storage;
 class StoreController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $data = store::all();
-        return view('store.index',compact('data'));
-    }
-
-
     public function viewStores()
     {
-        $data = store::all();
+        $data = store::paginate(1);
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
@@ -34,28 +22,19 @@ class StoreController extends Controller
 
     public function viewFeaturedStores()
     {
-        $data = store::all();
+        $data = store::paginate(1);
         $type = 'featuredStores';
         return view('store.index',compact('data','type'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $categories = category::all();
         return view('store.create',compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreRequest $request)
     {
         $path = 'public/uploads/store/';
@@ -80,23 +59,12 @@ class StoreController extends Controller
         return view('store.index',compact('data','type'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\store  $store
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(store $store)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\store  $store
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $categories = category::all();
@@ -104,13 +72,6 @@ class StoreController extends Controller
         return view('store.edit',compact('store','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\store  $store
-     * @return \Illuminate\Http\Response
-     */
     public function update(StoreRequest $request,$id)
     {
 
@@ -146,12 +107,6 @@ class StoreController extends Controller
         return view('store.index',compact('data','type'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\store  $store
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         store::where('id', $id)->delete();
