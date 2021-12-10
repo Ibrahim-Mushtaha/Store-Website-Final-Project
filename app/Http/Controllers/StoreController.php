@@ -13,7 +13,7 @@ class StoreController extends Controller
 {
 
     public function viewStores(){
-        $data = store::paginate(1);
+        $data = store::paginate(2);
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
@@ -47,7 +47,7 @@ class StoreController extends Controller
 
         Toastr::success('Store Added successfully :)','Success');
 
-        $data = store::all();
+        $data = store::paginate(2);
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
@@ -82,7 +82,7 @@ class StoreController extends Controller
         }
         $store->save();
         Toastr::success('Store Updated successfully :)','Success');
-        $data = store::all();
+        $data = store::paginate(2);
         $type = 'allStores';
         return view('store.index',compact('data','type'));
     }
